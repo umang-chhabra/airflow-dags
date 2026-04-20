@@ -12,5 +12,5 @@ with DAG(
 
     say_hello = BashOperator(
         task_id="check_git",
-        bash_command="echo 'TEST-TEST-TEST",
+        bash_command="echo 'TEST-TEST-TEST'",
     )
