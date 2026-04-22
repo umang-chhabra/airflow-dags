@@ -8,12 +8,12 @@ with DAG(
     start_date=datetime(2024, 1, 1),
     schedule=None,
     catchup=False,
-    max_active_tasks=32,         # ← replaces concurrency= in Airflow 3.x
+    max_active_tasks=6,         
     max_active_runs=1,
     tags=["stress", "parallelism"],
 ) as dag:
 
-    for i in range(32):
+    for i in range(8):          
         KubernetesPodOperator(
             task_id=f"task_{i:02d}",
             name=f"stress-pod-{i:02d}",
@@ -22,7 +22,7 @@ with DAG(
             cmds=["sh", "-c"],
             arguments=[
                 f"echo 'Task {i:02d} started on' $HOSTNAME && "
-                f"sleep 30 && "
+                f"sleep 15 && "  
                 f"echo 'Task {i:02d} done'"
             ],
             is_delete_operator_pod=True,
