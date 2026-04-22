@@ -32,5 +32,3 @@ with DAG(
                 limits={"cpu": "200m",   "memory": "256Mi"},
             ),
         )
-
-        1vcpu = 1000m
