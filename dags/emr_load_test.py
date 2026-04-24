@@ -23,7 +23,7 @@ JARS = ",".join([
 ])
 
 TASK_CONFIG = {
-    "jobId":               "load_test_01",
+    "jobId":               "1",
     "sourceSecretName":    "cp-qa-datalake-db-secret",
     "topicPrefix":         "zoom_poker",
     "sourceDatabase":      "zoom_poker",
